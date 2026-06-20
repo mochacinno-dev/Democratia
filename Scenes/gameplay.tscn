@@ -1,153 +1,506 @@
 [gd_scene format=3 uid="uid://cfddj08gbnjkn"]
 
-[ext_resource type="Script" uid="uid://disryfw648m0d" path="res://Scenes/gameplay.gd" id="1_gameplay"]
+[ext_resource type="Script" path="res://Scenes/gameplay.gd" id="1_gameplay"]
+[ext_resource type="Script" path="res://Scenes/parliament_chart.gd" id="2_chart"]
 
 [node name="Control" type="Control" unique_id=1180879185]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_gameplay")
 
-[node name="TabContainer" type="TabContainer" parent="." unique_id=2136386169]
+[node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 18
-current_tab = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 15
 
-[node name="Overview" type="Control" parent="TabContainer" unique_id=675553896]
+[node name="Overview" type="Control" parent="TabContainer"]
 layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="VBox" type="VBoxContainer" parent="TabContainer/Overview" unique_id=1754338345]
+[node name="Margin" type="MarginContainer" parent="TabContainer/Overview"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -200.0
-offset_right = 300.0
-offset_bottom = 220.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 18
-
-[node name="PlayerName" type="Label" parent="TabContainer/Overview/VBox" unique_id=1559049924]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 24
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Overview/Margin"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Politician: ..."
-
-[node name="Party" type="Label" parent="TabContainer/Overview/VBox" unique_id=1928598855]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Party: ..."
-
-[node name="Date" type="Label" parent="TabContainer/Overview/VBox" unique_id=1844732178]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Date: ..."
-
-[node name="Approval" type="Label" parent="TabContainer/Overview/VBox" unique_id=842187476]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Approval: ..."
-
-[node name="MajorityStatus" type="Label" parent="TabContainer/Overview/VBox" unique_id=871072475]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "..."
-
-[node name="NextMonthBtn" type="Button" parent="TabContainer/Overview/VBox" unique_id=1202747833]
-custom_minimum_size = Vector2(220, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 19
-text = "⏭  Advance to Next Month"
-
-[node name="Parliament" type="Control" parent="TabContainer" unique_id=1724706920]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="VBox" type="VBoxContainer" parent="TabContainer/Parliament" unique_id=417975354]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -200.0
-offset_right = 320.0
-offset_bottom = 200.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/separation = 12
-
-[node name="Heading" type="Label" parent="TabContainer/Parliament/VBox" unique_id=1189594879]
+[node name="PlayerName" type="Label" parent="TabContainer/Overview/Margin/VBox"]
 layout_mode = 2
+text = "Politician: ..."
 theme_override_font_sizes/font_size = 24
-text = "Parliament — Seat Distribution"
+[node name="Party" type="Label" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+text = "Party: ..."
+theme_override_font_sizes/font_size = 20
+[node name="Date" type="Label" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+text = "Date: ..."
+theme_override_font_sizes/font_size = 19
+[node name="Capital" type="Label" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+text = "Political Capital: ..."
+theme_override_font_sizes/font_size = 19
+[node name="ElectionCountdown" type="Label" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+text = "Next Election: ..."
+theme_override_font_sizes/font_size = 19
+[node name="Approval" type="Label" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+text = "Approval: ..."
+theme_override_font_sizes/font_size = 20
+[node name="MajorityStatus" type="Label" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+text = "..."
+theme_override_font_sizes/font_size = 19
+[node name="Economy" type="Label" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+text = "Economy: ..."
+theme_override_font_sizes/font_size = 19
+[node name="LegRecord" type="Label" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+text = "Legislation: ..."
+theme_override_font_sizes/font_size = 19
+[node name="Headline" type="Label" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+text = ""
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 18
+[node name="OppMsg" type="Label" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+text = ""
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 17
+[node name="CrisisAlert" type="Label" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+visible = false
+text = ""
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 18
+[node name="NextMonthBtn" type="Button" parent="TabContainer/Overview/Margin/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(240, 46)
+text = "⏭  Advance to Next Month"
+theme_override_font_sizes/font_size = 18
 
-[node name="SeatList" type="VBoxContainer" parent="TabContainer/Parliament/VBox" unique_id=665349010]
+[node name="Parliament" type="Control" parent="TabContainer"]
+layout_mode = 2
+[node name="Margin" type="MarginContainer" parent="TabContainer/Parliament"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 18
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Parliament/Margin"]
 layout_mode = 2
 theme_override_constants/separation = 10
-
-[node name="Events" type="Control" parent="TabContainer" unique_id=160044844]
-visible = false
+[node name="SeatsHeader" type="Label" parent="TabContainer/Parliament/Margin/VBox"]
 layout_mode = 2
-metadata/_tab_index = 2
+text = "Parliament"
+theme_override_font_sizes/font_size = 21
+[node name="Chart" type="Control" parent="TabContainer/Parliament/Margin/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 270)
+script = ExtResource("2_chart")
+[node name="CoalitionInfo" type="Label" parent="TabContainer/Parliament/Margin/VBox"]
+layout_mode = 2
+text = "Coalition: ..."
+theme_override_font_sizes/font_size = 17
+[node name="Legend" type="VBoxContainer" parent="TabContainer/Parliament/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 7
 
-[node name="VBox" type="VBoxContainer" parent="TabContainer/Events" unique_id=588295120]
+[node name="Legislation" type="Control" parent="TabContainer"]
+layout_mode = 2
+[node name="Margin" type="MarginContainer" parent="TabContainer/Legislation"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -220.0
-offset_right = 360.0
-offset_bottom = 220.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="EventTitle" type="Label" parent="TabContainer/Events/VBox" unique_id=2004565124]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 24
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Legislation/Margin"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "..."
-
-[node name="EventDesc" type="Label" parent="TabContainer/Events/VBox" unique_id=624340798]
+theme_override_constants/separation = 12
+[node name="BillName" type="Label" parent="TabContainer/Legislation/Margin/VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+text = "Bill: ..."
+theme_override_font_sizes/font_size = 23
+[node name="BillDesc" type="Label" parent="TabContainer/Legislation/Margin/VBox"]
+layout_mode = 2
 text = "..."
 autowrap_mode = 3
-
-[node name="ChoiceA" type="Button" parent="TabContainer/Events/VBox" unique_id=1422014633]
-custom_minimum_size = Vector2(500, 50)
+theme_override_font_sizes/font_size = 18
+[node name="BillEffects" type="Label" parent="TabContainer/Legislation/Margin/VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 19
-text = "Choice A"
-
-[node name="ChoiceB" type="Button" parent="TabContainer/Events/VBox" unique_id=1474831263]
-custom_minimum_size = Vector2(500, 50)
+text = "Effects: ..."
+theme_override_font_sizes/font_size = 17
+[node name="GroupsEffect" type="Label" parent="TabContainer/Legislation/Margin/VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 19
-text = "Choice B"
-
-[node name="EventResult" type="Label" parent="TabContainer/Events/VBox" unique_id=1642832139]
+text = "Groups: ..."
+theme_override_font_sizes/font_size = 17
+[node name="VoteTally" type="Label" parent="TabContainer/Legislation/Margin/VBox"]
+layout_mode = 2
+text = "Vote projection: ..."
+theme_override_font_sizes/font_size = 17
+[node name="HBoxActions" type="HBoxContainer" parent="TabContainer/Legislation/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="BtnWhip" type="Button" parent="TabContainer/Legislation/Margin/VBox/HBoxActions"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 42)
+text = "🗣 Whip Vote\n(2 cap, -2 approval)"
+theme_override_font_sizes/font_size = 15
+[node name="BtnCoalition" type="Button" parent="TabContainer/Legislation/Margin/VBox/HBoxActions"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 42)
+text = "🤝 Seek Coalition\n(3 capital)"
+theme_override_font_sizes/font_size = 15
+[node name="HBoxVote" type="HBoxContainer" parent="TabContainer/Legislation/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="BtnPassBill" type="Button" parent="TabContainer/Legislation/Margin/VBox/HBoxVote"]
+layout_mode = 2
+custom_minimum_size = Vector2(150, 42)
+text = "✔ Call the Vote"
+theme_override_font_sizes/font_size = 16
+[node name="BtnDropBill" type="Button" parent="TabContainer/Legislation/Margin/VBox/HBoxVote"]
+layout_mode = 2
+custom_minimum_size = Vector2(150, 42)
+text = "✘ Drop the Bill"
+theme_override_font_sizes/font_size = 16
+[node name="BillResult" type="Label" parent="TabContainer/Legislation/Margin/VBox"]
+layout_mode = 2
 visible = false
+text = ""
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 17
+
+[node name="Cabinet" type="Control" parent="TabContainer"]
 layout_mode = 2
+[node name="Margin" type="MarginContainer" parent="TabContainer/Cabinet"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 24
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Cabinet/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="CapitalLabel" type="Label" parent="TabContainer/Cabinet/Margin/VBox"]
+layout_mode = 2
+text = "Political Capital: ..."
+theme_override_font_sizes/font_size = 18
+[node name="CabinetSlots" type="Label" parent="TabContainer/Cabinet/Margin/VBox"]
+layout_mode = 2
+text = "Cabinet: ..."
+theme_override_font_sizes/font_size = 17
+[node name="Candidates" type="Label" parent="TabContainer/Cabinet/Margin/VBox"]
+layout_mode = 2
+text = "Available Candidates:"
+theme_override_font_sizes/font_size = 17
+[node name="HBoxAppoint" type="HBoxContainer" parent="TabContainer/Cabinet/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+[node name="SlotOption" type="OptionButton" parent="TabContainer/Cabinet/Margin/VBox/HBoxAppoint"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 38)
+theme_override_font_sizes/font_size = 15
+[node name="CandidateOption" type="OptionButton" parent="TabContainer/Cabinet/Margin/VBox/HBoxAppoint"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 38)
+theme_override_font_sizes/font_size = 15
+[node name="BtnAppoint" type="Button" parent="TabContainer/Cabinet/Margin/VBox/HBoxAppoint"]
+layout_mode = 2
+custom_minimum_size = Vector2(110, 38)
+text = "✔ Appoint"
+theme_override_font_sizes/font_size = 15
+[node name="BtnDismiss" type="Button" parent="TabContainer/Cabinet/Margin/VBox/HBoxAppoint"]
+layout_mode = 2
+custom_minimum_size = Vector2(110, 38)
+text = "✘ Dismiss"
+theme_override_font_sizes/font_size = 15
+[node name="CabinetResult" type="Label" parent="TabContainer/Cabinet/Margin/VBox"]
+layout_mode = 2
+visible = false
+text = ""
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 17
+
+[node name="Press" type="Control" parent="TabContainer"]
+layout_mode = 2
+[node name="Margin" type="MarginContainer" parent="TabContainer/Press"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 24
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Press/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+[node name="HeadlinePress" type="Label" parent="TabContainer/Press/Margin/VBox"]
+layout_mode = 2
+text = "Latest Headline: ..."
+autowrap_mode = 3
 theme_override_font_sizes/font_size = 20
+[node name="MediaHostility" type="Label" parent="TabContainer/Press/Margin/VBox"]
+layout_mode = 2
+text = "Media Hostility: ..."
+theme_override_font_sizes/font_size = 18
+[node name="GroupsPress" type="Label" parent="TabContainer/Press/Margin/VBox"]
+layout_mode = 2
+text = "Public Groups: ..."
+theme_override_font_sizes/font_size = 17
+[node name="HBoxPress" type="HBoxContainer" parent="TabContainer/Press/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="BtnPressConf" type="Button" parent="TabContainer/Press/Margin/VBox/HBoxPress"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 44)
+text = "🎤 Press Conference\n(2 capital, 60% good spin)"
+theme_override_font_sizes/font_size = 15
+[node name="BtnBuyMedia" type="Button" parent="TabContainer/Press/Margin/VBox/HBoxPress"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 44)
+text = "📰 Buy Media Outlet\n(8 capital, hostility -25)"
+theme_override_font_sizes/font_size = 15
+[node name="PressResult" type="Label" parent="TabContainer/Press/Margin/VBox"]
+layout_mode = 2
+visible = false
+text = ""
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 17
+
+[node name="Foreign" type="Control" parent="TabContainer"]
+layout_mode = 2
+[node name="Margin" type="MarginContainer" parent="TabContainer/Foreign"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 24
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Foreign/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="TradeDeals" type="Label" parent="TabContainer/Foreign/Margin/VBox"]
+layout_mode = 2
+text = "Trade Deals: ..."
+theme_override_font_sizes/font_size = 18
+[node name="HBoxTrade" type="HBoxContainer" parent="TabContainer/Foreign/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+[node name="TradeOption" type="OptionButton" parent="TabContainer/Foreign/Margin/VBox/HBoxTrade"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 38)
+theme_override_font_sizes/font_size = 15
+[node name="BtnSignTrade" type="Button" parent="TabContainer/Foreign/Margin/VBox/HBoxTrade"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 38)
+text = "✍ Sign Trade Deal"
+theme_override_font_sizes/font_size = 15
+[node name="Alliances" type="Label" parent="TabContainer/Foreign/Margin/VBox"]
+layout_mode = 2
+text = "Alliances: ..."
+theme_override_font_sizes/font_size = 18
+[node name="HBoxAlliance" type="HBoxContainer" parent="TabContainer/Foreign/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+[node name="AllianceOption" type="OptionButton" parent="TabContainer/Foreign/Margin/VBox/HBoxAlliance"]
+layout_mode = 2
+custom_minimum_size = Vector2(380, 38)
+theme_override_font_sizes/font_size = 15
+[node name="BtnJoinAlliance" type="Button" parent="TabContainer/Foreign/Margin/VBox/HBoxAlliance"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 38)
+text = "🤝 Join Alliance"
+theme_override_font_sizes/font_size = 15
+[node name="CrisisLabel" type="Label" parent="TabContainer/Foreign/Margin/VBox"]
+layout_mode = 2
+text = "Active Crisis: None"
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 18
+[node name="HBoxCrisis" type="HBoxContainer" parent="TabContainer/Foreign/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="BtnResolveCrisis" type="Button" parent="TabContainer/Foreign/Margin/VBox/HBoxCrisis"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 42)
+disabled = true
+text = "✔ Resolve Crisis"
+theme_override_font_sizes/font_size = 16
+[node name="BtnIgnoreCrisis" type="Button" parent="TabContainer/Foreign/Margin/VBox/HBoxCrisis"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 42)
+disabled = true
+text = "✘ Ignore Crisis"
+theme_override_font_sizes/font_size = 16
+[node name="ForeignResult" type="Label" parent="TabContainer/Foreign/Margin/VBox"]
+layout_mode = 2
+visible = false
+text = ""
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 17
+
+[node name="Election" type="Control" parent="TabContainer"]
+layout_mode = 2
+[node name="Margin" type="MarginContainer" parent="TabContainer/Election"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 24
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Election/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+[node name="Polling" type="Label" parent="TabContainer/Election/Margin/VBox"]
+layout_mode = 2
+text = "Polling: ..."
+theme_override_font_sizes/font_size = 18
+[node name="Funds" type="Label" parent="TabContainer/Election/Margin/VBox"]
+layout_mode = 2
+text = "Campaign Funds: ..."
+theme_override_font_sizes/font_size = 18
+[node name="HBoxCampaign" type="HBoxContainer" parent="TabContainer/Election/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="BtnAds" type="Button" parent="TabContainer/Election/Margin/VBox/HBoxCampaign"]
+layout_mode = 2
+custom_minimum_size = Vector2(160, 42)
+text = "📺 Ad Campaign\n(2 funds, +4 poll)"
+theme_override_font_sizes/font_size = 15
+[node name="BtnRally" type="Button" parent="TabContainer/Election/Margin/VBox/HBoxCampaign"]
+layout_mode = 2
+custom_minimum_size = Vector2(160, 42)
+text = "📣 Hold Rally\n(1 fund, +2 poll)"
+theme_override_font_sizes/font_size = 15
+[node name="BtnAttack" type="Button" parent="TabContainer/Election/Margin/VBox/HBoxCampaign"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 42)
+text = "⚔ Attack Ads\n(1 fund, rival -3)"
+theme_override_font_sizes/font_size = 15
+[node name="BtnHoldElection" type="Button" parent="TabContainer/Election/Margin/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 46)
+text = "🗳  Hold the Election"
+theme_override_font_sizes/font_size = 18
+[node name="ElectionResult" type="Label" parent="TabContainer/Election/Margin/VBox"]
+layout_mode = 2
+text = "No election scheduled."
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 17
+
+[node name="Economy" type="Control" parent="TabContainer"]
+layout_mode = 2
+[node name="Margin" type="MarginContainer" parent="TabContainer/Economy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 24
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Economy/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+[node name="GDP" type="Label" parent="TabContainer/Economy/Margin/VBox"]
+layout_mode = 2
+text = "GDP: ..."
+theme_override_font_sizes/font_size = 21
+[node name="Unemployment" type="Label" parent="TabContainer/Economy/Margin/VBox"]
+layout_mode = 2
+text = "Unemployment: ..."
+theme_override_font_sizes/font_size = 21
+[node name="Deficit" type="Label" parent="TabContainer/Economy/Margin/VBox"]
+layout_mode = 2
+text = "Deficit: ..."
+theme_override_font_sizes/font_size = 21
+[node name="EconGroups" type="Label" parent="TabContainer/Economy/Margin/VBox"]
+layout_mode = 2
+text = "Groups: ..."
+theme_override_font_sizes/font_size = 17
+[node name="HBoxEcon" type="HBoxContainer" parent="TabContainer/Economy/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="BtnStimulus" type="Button" parent="TabContainer/Economy/Margin/VBox/HBoxEcon"]
+layout_mode = 2
+custom_minimum_size = Vector2(170, 46)
+text = "💰 Stimulus\nGDP ▲  Deficit ▲"
+theme_override_font_sizes/font_size = 15
+[node name="BtnAusterity" type="Button" parent="TabContainer/Economy/Margin/VBox/HBoxEcon"]
+layout_mode = 2
+custom_minimum_size = Vector2(170, 46)
+text = "✂ Austerity\nDeficit ▼  GDP ▼"
+theme_override_font_sizes/font_size = 15
+[node name="BtnRateCut" type="Button" parent="TabContainer/Economy/Margin/VBox/HBoxEcon"]
+layout_mode = 2
+custom_minimum_size = Vector2(170, 46)
+text = "🏦 Rate Cut\nGDP ▲  Jobs ▲"
+theme_override_font_sizes/font_size = 15
+[node name="EconResult" type="Label" parent="TabContainer/Economy/Margin/VBox"]
+layout_mode = 2
+visible = false
+text = ""
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 17
+
+[node name="Goals" type="Control" parent="TabContainer"]
+layout_mode = 2
+[node name="Margin" type="MarginContainer" parent="TabContainer/Goals"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 24
+[node name="VBox" type="VBoxContainer" parent="TabContainer/Goals/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+[node name="GoalsText" type="Label" parent="TabContainer/Goals/Margin/VBox"]
+layout_mode = 2
+text = "Term Goals: ..."
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 19
+[node name="LegacyScore" type="Label" parent="TabContainer/Goals/Margin/VBox"]
+layout_mode = 2
+text = "Legacy Score: ..."
+theme_override_font_sizes/font_size = 19
+[node name="BtnSetGoals" type="Button" parent="TabContainer/Goals/Margin/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(200, 44)
+text = "↺ Generate New Goals"
+theme_override_font_sizes/font_size = 17
+[node name="GoalsResult" type="Label" parent="TabContainer/Goals/Margin/VBox"]
+layout_mode = 2
+visible = false
+text = ""
+theme_override_font_sizes/font_size = 17
