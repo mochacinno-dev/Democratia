@@ -13,7 +13,11 @@ config_version=5
 config/name="Democratia"
 run/main_scene="uid://ig8egr1fvx5n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Art/Backgrounds/MenuBackground.png"
+
+[autoload]
+
+GameData="*uid://50e0sv12ao3k"
 
 [physics]
 

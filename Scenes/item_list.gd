@@ -1,44 +1,39 @@
 extends ItemList
 
-@onready var item_list = self
-@onready var first_name = $"../Nombre"
-@onready var last_name = $"../Apellido"
-@onready var start_button = $"../Start"
+@onready var first_name   = $"../Nombre"
+@onready var last_name    = $"../Apellido"
+@onready var error_label  = $"../ErrorLabel"
 
-var selected_party = ""
+var selected_party : String = ""
 
-var parties = [
-	"Green Alliance Party",
-	"Centre Compass Party",
-	"Fair Nationalism Party",
-	"Rose Democracy Party",
-	"Liberal Society Party",
-]
+func _ready() -> void:
+	item_selected.connect(_on_party_selected)
 
-func _ready():
-	_populate_item_list()
-	item_list.item_selected.connect(_on_party_selected)
-	start_button.pressed.connect(_on_start_pressed)
+func _on_party_selected(index: int) -> void:
+	selected_party = get_item_text(index)
+	_clear_error()
 
-func _populate_item_list():
-	item_list.clear()
-	for party in parties:
-		item_list.add_item(party)
-
-func _on_party_selected(index: int):
-	selected_party = item_list.get_item_text(index)
-	print("Partido seleccionado: ", selected_party)
-
-func _on_start_pressed():
+func validate_and_save() -> bool:
 	if first_name.text.strip_edges() == "":
-		print("Escribe tu nombre")
-		return
+		_show_error("Please enter your first name.")
+		return false
 	if last_name.text.strip_edges() == "":
-		print("Escribe tu apellido")
-		return
+		_show_error("Please enter your last name.")
+		return false
 	if selected_party == "":
-		print("Selecciona un partido")
-		return
+		_show_error("Please select a party.")
+		return false
 
-	print("Iniciando con: ", first_name.text, " ", last_name.text, " - ", selected_party)
-	get_tree().change_scene_to_file("res://Scenes/config.tscn")
+	GameData.player_first_name = first_name.text.strip_edges()
+	GameData.player_last_name  = last_name.text.strip_edges()
+	GameData.player_party      = selected_party
+	return true
+
+func _show_error(msg: String) -> void:
+	if error_label:
+		error_label.text    = msg
+		error_label.visible = true
+
+func _clear_error() -> void:
+	if error_label:
+		error_label.visible = false

@@ -19,6 +19,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ErrorLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.860
+anchor_right = 0.194
+anchor_bottom = 0.860
+offset_left = -159.488
+offset_top = -13.0
+offset_right = 320.0
+offset_bottom = 13.0
+visible = false
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.9, 0.2, 0.2, 1)
+text = ""
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1323275273]
 position = Vector2(1024, 1024)
 texture = ExtResource("1_gyli8")
