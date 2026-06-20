@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://kvho164yh3dv"]
+
+[ext_resource type="Texture2D" uid="uid://di7rql7uadn7q" path="res://Art/Backgrounds/MenuBackground.png" id="1_gyli8"]
+[ext_resource type="Script" uid="uid://optovax5qnd3" path="res://Scenes/nombre.gd" id="2_6u63q"]
+[ext_resource type="Script" uid="uid://dk351xcgir7w4" path="res://Scenes/apellido.gd" id="3_6u63q"]
+[ext_resource type="Script" uid="uid://cxj20usu7nmwi" path="res://Scenes/start.gd" id="4_lrmn4"]
+[ext_resource type="Texture2D" uid="uid://bjopj2w8me14g" path="res://Art/Emblems/Emblem_Green.png" id="5_1jr8q"]
+[ext_resource type="Texture2D" uid="uid://c4x0rjkjmf5qt" path="res://Art/Emblems/Emblem_Centre.png" id="6_0p7ku"]
+[ext_resource type="Texture2D" uid="uid://btg1eka7wmvpi" path="res://Art/Emblems/Emblem_NatCon.png" id="7_88myb"]
+[ext_resource type="Texture2D" uid="uid://bfv08vm2f35ux" path="res://Art/Emblems/Emblem_SocDem.png" id="8_3evu0"]
+[ext_resource type="Texture2D" uid="uid://c45dute21pxfc" path="res://Art/Emblems/Emblem_Liberal.png" id="9_yr7i7"]
+[ext_resource type="Script" uid="uid://clqqa1qj3t4cc" path="res://Scenes/item_list.gd" id="10_nvasc"]
+
+[node name="Control" type="Control" unique_id=371388172]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1323275273]
+position = Vector2(1024, 1024)
+texture = ExtResource("1_gyli8")
+
+[node name="Label" type="Label" parent="." unique_id=1584282774]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19800001
+anchor_top = 0.13100001
+anchor_right = 0.19800001
+anchor_bottom = 0.13100001
+offset_left = -164.09601
+offset_top = -20.888008
+offset_right = 163.90399
+offset_bottom = 21.111992
+theme_override_font_sizes/font_size = 30
+text = "CHARACTER CREATION"
+
+[node name="Nombre" type="LineEdit" parent="." unique_id=446786529]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.32700002
+anchor_right = 0.194
+anchor_bottom = 0.32700002
+offset_left = -159.488
+offset_top = -19.896011
+offset_right = 160.512
+offset_bottom = 20.103989
+theme_override_font_sizes/font_size = 23
+placeholder_text = "First Name"
+script = ExtResource("2_6u63q")
+
+[node name="Apellido" type="LineEdit" parent="." unique_id=633053484]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.52500004
+anchor_right = 0.194
+anchor_bottom = 0.52500004
+offset_left = -159.488
+offset_top = -20.200012
+offset_right = 160.512
+offset_bottom = 19.799988
+theme_override_font_sizes/font_size = 23
+placeholder_text = "Last Name"
+script = ExtResource("3_6u63q")
+
+[node name="Label2" type="Label" parent="." unique_id=741619414]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.26200002
+anchor_right = 0.194
+anchor_bottom = 0.26200002
+offset_left = -159.488
+offset_top = -13.776016
+offset_right = 160.512
+offset_bottom = 13.223984
+theme_override_font_sizes/font_size = 19
+text = "First Name"
+
+[node name="Label3" type="Label" parent="." unique_id=282977476]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.45800003
+anchor_right = 0.194
+anchor_bottom = 0.45800003
+offset_left = -159.488
+offset_top = -13.784027
+offset_right = 160.512
+offset_bottom = 13.215973
+theme_override_font_sizes/font_size = 19
+text = "Last Name"
+
+[node name="Start" type="Button" parent="." unique_id=300914219]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.92100006
+anchor_right = 0.194
+anchor_bottom = 0.92100006
+offset_left = -159.488
+offset_top = -19.808044
+offset_right = 160.512
+offset_bottom = 20.191956
+text = "START"
+alignment = 0
+script = ExtResource("4_lrmn4")
+
+[node name="ItemList" type="ItemList" parent="." unique_id=1031682867]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.804
+anchor_top = 0.259
+anchor_right = 0.804
+anchor_bottom = 0.259
+offset_left = -156.20801
+offset_top = -103.832
+offset_right = 155.79199
+offset_bottom = 104.168
+theme_override_font_sizes/font_size = 19
+item_count = 5
+icon_scale = 0.07
+fixed_icon_size = Vector2i(500, 500)
+item_0/text = "Green Alliance Party"
+item_0/icon = ExtResource("5_1jr8q")
+item_1/text = "Centre Compass Party"
+item_1/icon = ExtResource("6_0p7ku")
+item_2/text = "Fair Nationalism Party"
+item_2/icon = ExtResource("7_88myb")
+item_3/text = "Rose Democracy Party"
+item_3/icon = ExtResource("8_3evu0")
+item_4/text = "Liberal Society Party"
+item_4/icon = ExtResource("9_yr7i7")
+script = ExtResource("10_nvasc")

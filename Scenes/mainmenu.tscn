@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://ig8egr1fvx5n"]
+
+[ext_resource type="Texture2D" uid="uid://di7rql7uadn7q" path="res://Art/Backgrounds/MenuBackground.png" id="1_web8u"]
+[ext_resource type="Texture2D" uid="uid://bfyun52ro8jc" path="res://Art/Logos/StudioLogo.png" id="2_rtnl3"]
+[ext_resource type="Script" uid="uid://duaaybwjcm54k" path="res://Scenes/button.gd" id="2_v4pkt"]
+[ext_resource type="Script" uid="uid://dxkujubwatiuc" path="res://Scenes/quit.gd" id="3_v4pkt"]
+
+[node name="Control" type="Control" unique_id=310565831]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBackground" type="Sprite2D" parent="." unique_id=1173273208]
+position = Vector2(327, 56)
+texture = ExtResource("1_web8u")
+
+[node name="Title" type="Label" parent="." unique_id=864866285]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24900001
+anchor_top = 0.259
+anchor_right = 0.24900001
+anchor_bottom = 0.259
+offset_left = -267.84802
+offset_top = -47.832
+offset_right = 268.15198
+offset_bottom = 48.168
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 70
+text = "DEMOCRATIA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="." unique_id=830019168]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.148
+anchor_top = 0.42000002
+anchor_right = 0.148
+anchor_bottom = 0.42000002
+offset_left = -107.496
+offset_top = -28.160004
+offset_right = 108.504
+offset_bottom = 27.839996
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+script = ExtResource("2_v4pkt")
+
+[node name="Settings" type="Button" parent="." unique_id=873259388]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.149
+anchor_top = 0.55600005
+anchor_right = 0.149
+anchor_bottom = 0.55600005
+offset_left = -107.64801
+offset_top = -28.288025
+offset_right = 108.35199
+offset_bottom = 27.711975
+grow_horizontal = 2
+grow_vertical = 2
+text = "SETTINGS"
+
+[node name="Quit" type="Button" parent="." unique_id=120369747]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.149
+anchor_top = 0.694
+anchor_right = 0.149
+anchor_bottom = 0.694
+offset_left = -107.64801
+offset_top = -28.22403
+offset_right = 108.35199
+offset_bottom = 27.77597
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+script = ExtResource("3_v4pkt")
+
+[node name="StudioLogo" type="Sprite2D" parent="." unique_id=451876653]
+position = Vector2(1018.0001, 598.00006)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("2_rtnl3")
