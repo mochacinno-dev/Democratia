@@ -1,5 +1,6 @@
 [gd_scene format=3]
 [ext_resource type="Script" path="res://Screens/screen_foreign.gd" id="1"]
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -11,71 +12,80 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 18
 [node name="VBox" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
-theme_override_constants/separation = 12
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
 [node name="Capital" type="Label" parent="Margin/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Capital: ..."
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 16
 [node name="Nations" type="Label" parent="Margin/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "..."
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 [node name="HBox" type="HBoxContainer" parent="Margin/VBox"]
 layout_mode = 2
-theme_override_constants/separation = 8
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
 [node name="NationOpt" type="OptionButton" parent="Margin/VBox/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(140, 36)
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
 theme_override_font_sizes/font_size = 14
 [node name="BtnEnvoy" type="Button" parent="Margin/VBox/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(130, 36)
-text = "✉ Send Envoy (2)"
+size_flags_horizontal = 3
+text = "✉ Envoy (2)"
 theme_override_font_sizes/font_size = 13
 [node name="BtnTrade" type="Button" parent="Margin/VBox/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(150, 36)
-text = "📦 Trade Deal (4)"
+size_flags_horizontal = 3
+text = "📦 Trade (4)"
 theme_override_font_sizes/font_size = 13
 [node name="BtnAlliance" type="Button" parent="Margin/VBox/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(140, 36)
+size_flags_horizontal = 3
 text = "🤝 Alliance (6)"
 theme_override_font_sizes/font_size = 13
 [node name="BtnSanction" type="Button" parent="Margin/VBox/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(130, 36)
-text = "🚫 Sanctions"
+size_flags_horizontal = 3
+text = "🚫 Sanction"
 theme_override_font_sizes/font_size = 13
 [node name="Crisis" type="Label" parent="Margin/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Active Crisis: None"
 autowrap_mode = 3
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 16
 [node name="HBoxCrisis" type="HBoxContainer" parent="Margin/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 10
 [node name="BtnResolve" type="Button" parent="Margin/VBox/HBoxCrisis"]
 layout_mode = 2
-custom_minimum_size = Vector2(160, 40)
+size_flags_horizontal = 3
 disabled = true
 text = "✔ Resolve Crisis"
 theme_override_font_sizes/font_size = 15
 [node name="BtnIgnore" type="Button" parent="Margin/VBox/HBoxCrisis"]
 layout_mode = 2
-custom_minimum_size = Vector2(160, 40)
+size_flags_horizontal = 3
 disabled = true
 text = "✘ Ignore Crisis"
 theme_override_font_sizes/font_size = 15
 [node name="Result" type="Label" parent="Margin/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 visible = false
 text = ""
 autowrap_mode = 3
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15

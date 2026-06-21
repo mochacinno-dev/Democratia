@@ -9,56 +9,77 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1_gameplay")
 
+; ── Top bar ────────────────────────────────────────────────────────────────────
 [node name="TopBar" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 0.0
-offset_bottom = 48.0
+offset_top = 0.0
+offset_bottom = 44.0
 grow_vertical = 1
 
 [node name="HBox" type="HBoxContainer" parent="TopBar"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 8
+
+[node name="Pad" type="Control" parent="TopBar/HBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(6, 0)
 
 [node name="Date" type="Label" parent="TopBar/HBox"]
 layout_mode = 2
-text = "January 2025"
-theme_override_font_sizes/font_size = 17
-custom_minimum_size = Vector2(160, 0)
+size_flags_horizontal = 3
+text = "📅 January 2025"
+theme_override_font_sizes/font_size = 14
+
+[node name="Sep1" type="VSeparator" parent="TopBar/HBox"]
+layout_mode = 2
 
 [node name="Approval" type="Label" parent="TopBar/HBox"]
 layout_mode = 2
-text = "Approval: 50%"
-theme_override_font_sizes/font_size = 17
-custom_minimum_size = Vector2(130, 0)
+size_flags_horizontal = 3
+text = "👍 50%"
+theme_override_font_sizes/font_size = 14
+
+[node name="Sep2" type="VSeparator" parent="TopBar/HBox"]
+layout_mode = 2
 
 [node name="Capital" type="Label" parent="TopBar/HBox"]
 layout_mode = 2
-text = "Capital: 20"
-theme_override_font_sizes/font_size = 17
-custom_minimum_size = Vector2(100, 0)
+size_flags_horizontal = 3
+text = "⚡ 20"
+theme_override_font_sizes/font_size = 14
+
+[node name="Sep3" type="VSeparator" parent="TopBar/HBox"]
+layout_mode = 2
 
 [node name="Seats" type="Label" parent="TopBar/HBox"]
 layout_mode = 2
-text = "Seats: 0/300"
-theme_override_font_sizes/font_size = 17
-custom_minimum_size = Vector2(120, 0)
+size_flags_horizontal = 3
+text = "🪑 42/300"
+theme_override_font_sizes/font_size = 14
+
+[node name="Sep4" type="VSeparator" parent="TopBar/HBox"]
+layout_mode = 2
 
 [node name="Legitimacy" type="Label" parent="TopBar/HBox"]
 layout_mode = 2
-text = "Legitimacy: 60"
-theme_override_font_sizes/font_size = 17
-custom_minimum_size = Vector2(130, 0)
+size_flags_horizontal = 3
+text = "⚖ 60"
+theme_override_font_sizes/font_size = 14
+
+[node name="Sep5" type="VSeparator" parent="TopBar/HBox"]
+layout_mode = 2
 
 [node name="CrisisAlert" type="Label" parent="TopBar/HBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 visible = false
 text = "⚠ CRISIS"
-theme_override_font_sizes/font_size = 17
-theme_override_colors/font_color = Color(1, 0.3, 0.2, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(1, 0.35, 0.2, 1)
 
 [node name="Spacer" type="Control" parent="TopBar/HBox"]
 layout_mode = 2
@@ -66,73 +87,83 @@ size_flags_horizontal = 3
 
 [node name="AdvanceBtn" type="Button" parent="TopBar/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(200, 36)
+size_flags_horizontal = 0
+custom_minimum_size = Vector2(160, 0)
 text = "⏭  Advance Month"
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 14
 
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="Pad2" type="Control" parent="TopBar/HBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(6, 0)
+
+; ── Body: sidebar + main panel ─────────────────────────────────────────────────
+[node name="Body" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 48.0
+offset_top = 44.0
 theme_override_constants/separation = 0
 
-[node name="Sidebar" type="PanelContainer" parent="HBox"]
+[node name="Sidebar" type="PanelContainer" parent="Body"]
 layout_mode = 2
-custom_minimum_size = Vector2(184, 0)
 size_flags_horizontal = 0
+size_flags_vertical = 3
+custom_minimum_size = Vector2(155, 0)
 
-[node name="VBox" type="VBoxContainer" parent="HBox/Sidebar"]
+[node name="Scroll" type="ScrollContainer" parent="Body/Sidebar"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="Body/Sidebar/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="MainPanel" type="Control" parent="HBox"]
+[node name="MainPanel" type="Control" parent="Body"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+; ── Events overlay ─────────────────────────────────────────────────────────────
 [node name="EventsOverlay" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -280.0
-offset_right = 320.0
-offset_bottom = 280.0
+anchor_left = 0.12
+anchor_top = 0.08
+anchor_right = 0.88
+anchor_bottom = 0.92
 visible = false
 
 [node name="Margin" type="MarginContainer" parent="EventsOverlay"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 16
 
 [node name="VBox" type="VBoxContainer" parent="EventsOverlay/Margin"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 14
 
 [node name="Title" type="Label" parent="EventsOverlay/Margin/VBox"]
 layout_mode = 2
 text = "📰  This Month's Events"
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 19
 
 [node name="Scroll" type="ScrollContainer" parent="EventsOverlay/Margin/VBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 360)
+size_flags_vertical = 3
 
 [node name="EventsList" type="VBoxContainer" parent="EventsOverlay/Margin/VBox/Scroll"]
 layout_mode = 2
-theme_override_constants/separation = 8
 size_flags_horizontal = 3
+theme_override_constants/separation = 10
 
 [node name="DismissBtn" type="Button" parent="EventsOverlay/Margin/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "✔  Continue"
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 16

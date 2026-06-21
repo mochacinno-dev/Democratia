@@ -12,35 +12,41 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 18
 [node name="HBox" type="HBoxContainer" parent="Margin"]
 layout_mode = 2
-theme_override_constants/separation = 20
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
 [node name="Left" type="VBoxContainer" parent="Margin/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 12
 [node name="Graph" type="Control" parent="Margin/HBox/Left"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 220)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("2")
 [node name="Stats" type="Label" parent="Margin/HBox/Left"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "..."
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 17
 [node name="Right" type="PanelContainer" parent="Margin/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(300, 0)
 size_flags_horizontal = 0
+size_flags_vertical = 3
 [node name="VBox" type="VBoxContainer" parent="Margin/HBox/Right"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 8
 [node name="Result" type="Label" parent="Margin/HBox/Right"]
 layout_mode = 2
 visible = false
 text = ""
 autowrap_mode = 3
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 14

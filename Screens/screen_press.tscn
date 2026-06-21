@@ -1,5 +1,6 @@
 [gd_scene format=3]
 [ext_resource type="Script" path="res://Screens/screen_press.gd" id="1"]
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -11,41 +12,50 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_left = 36
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 36
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 18
 [node name="VBox" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 14
 [node name="Headline" type="Label" parent="Margin/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "..."
 autowrap_mode = 3
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 20
 [node name="Hostility" type="Label" parent="Margin/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "..."
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 16
 [node name="Groups" type="Label" parent="Margin/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "..."
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 [node name="HBox" type="HBoxContainer" parent="Margin/VBox"]
 layout_mode = 2
-theme_override_constants/separation = 12
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
 [node name="BtnConf" type="Button" parent="Margin/VBox/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(200, 44)
+size_flags_horizontal = 3
 text = "🎤 Press Conference (2 cap)"
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 14
 [node name="BtnBuy" type="Button" parent="Margin/VBox/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(220, 44)
+size_flags_horizontal = 3
 text = "📰 Buy Media Outlet (8 cap)"
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 14
 [node name="Result" type="Label" parent="Margin/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 visible = false
 text = ""
-theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 15

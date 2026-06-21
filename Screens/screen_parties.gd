@@ -1,7 +1,7 @@
 extends Control
-@onready var box : VBoxContainer = $Scroll/VBox
-@onready var lbl_result : Label = $Result
-@onready var lbl_cap : Label = $Capital
+@onready var box : VBoxContainer = $Margin/VBox/Scroll/VBox
+@onready var lbl_result : Label = $Margin/VBox/Result
+@onready var lbl_cap : Label = $Margin/VBox/Capital
 func _ready() -> void: refresh()
 func refresh() -> void:
 	lbl_cap.text = "Political Capital: %d / 40" % GameData.political_capital

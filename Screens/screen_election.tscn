@@ -1,5 +1,6 @@
 [gd_scene format=3]
 [ext_resource type="Script" path="res://Screens/screen_election.gd" id="1"]
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -11,47 +12,54 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_left = 36
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 36
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 18
 [node name="VBox" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 14
 [node name="Polling" type="Label" parent="Margin/VBox"]
 layout_mode = 2
-text = "..."
-theme_override_font_sizes/font_size = 18
-[node name="Funds" type="Label" parent="Margin/VBox"]
-layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "..."
 theme_override_font_sizes/font_size = 17
+[node name="Funds" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "..."
+theme_override_font_sizes/font_size = 16
 [node name="HBox" type="HBoxContainer" parent="Margin/VBox"]
 layout_mode = 2
-theme_override_constants/separation = 10
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
 [node name="BtnAds" type="Button" parent="Margin/VBox/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(155, 42)
+size_flags_horizontal = 3
 text = "📺 Ad Campaign (2 funds)"
 theme_override_font_sizes/font_size = 14
 [node name="BtnRally" type="Button" parent="Margin/VBox/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(145, 42)
+size_flags_horizontal = 3
 text = "📣 Rally (1 fund)"
 theme_override_font_sizes/font_size = 14
 [node name="BtnAttack" type="Button" parent="Margin/VBox/HBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(160, 42)
+size_flags_horizontal = 3
 text = "⚔ Attack Ads (1 fund)"
 theme_override_font_sizes/font_size = 14
 [node name="BtnVote" type="Button" parent="Margin/VBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(200, 46)
+size_flags_horizontal = 3
 text = "🗳  Hold the Election"
 theme_override_font_sizes/font_size = 18
 [node name="Result" type="Label" parent="Margin/VBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 visible = false
 text = ""
 autowrap_mode = 3
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 16
