@@ -78,8 +78,8 @@ func _on_dismiss() -> void:
 	var slot = opt_slot.get_item_text(si)
 	if GameData.cabinet[slot].is_empty():
 		lbl_result.text = "Slot is already vacant."; lbl_result.visible = true; return
-	var name = GameData.cabinet[slot].get("name", "Minister")
+	var minister_name = GameData.cabinet[slot].get("name", "Minister")
 	GameData.cabinet[slot] = {}
 	GameData.approval_rating = clampf(GameData.approval_rating - 3.0, 0.0, 100.0)
-	lbl_result.text = "%s dismissed. (-3 approval)" % name; lbl_result.visible = true
+	lbl_result.text = "%s dismissed. (-3 approval)" % minister_name; lbl_result.visible = true
 	refresh()

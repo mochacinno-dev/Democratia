@@ -166,14 +166,15 @@ func _tick_diplomacy(ev: Array) -> void:
 		# Sanctions hurt economy
 		if rel["sanctions"]:
 			GameData.gdp_growth = clampf(GameData.gdp_growth - 0.15, -5.0, 10.0)
-			ev.append("🚫 Sanctions from %s continue to drag on GDP." % nation) if randf() < 0.1 else null
+			if randf() < 0.1:
+				ev.append("🚫 Sanctions from %s continue to drag on GDP." % nation)
 
 		# Relations drift toward 0 (neutral) slowly if no active policy
 		if not rel["alliance"] and not rel["trade_deal"]:
 			rel["relation"] += (0 - rel["relation"]) * 0.02
 
 # ── Cabinet ────────────────────────────────────────────────────────────────────
-func _tick_cabinet(ev: Array) -> void:
+func _tick_cabinet(_ev: Array) -> void:
 	for slot in GameData.cabinet:
 		var m = GameData.cabinet[slot]
 		if m.is_empty(): continue
@@ -182,7 +183,7 @@ func _tick_cabinet(ev: Array) -> void:
 			m["competence"] = min(10, m["competence"] + 1)
 
 # ── Media ──────────────────────────────────────────────────────────────────────
-func _tick_media(ev: Array) -> void:
+func _tick_media(_ev: Array) -> void:
 	# Hostile media amplifies bad news
 	if GameData.media_hostility > 50.0 and GameData.approval_rating < 50.0:
 		GameData.approval_rating = clampf(GameData.approval_rating - 0.5, 0.0, 100.0)
@@ -238,19 +239,19 @@ func _tick_scandal(ev: Array) -> void:
 			if not GameData.cabinet[slot].is_empty(): filled.append(slot)
 		if not filled.is_empty():
 			var slot = filled[randi() % filled.size()]
-			var name = GameData.cabinet[slot].get("name", "Minister")
+			var minister_name = GameData.cabinet[slot].get("name", "Minister")
 			GameData.cabinet[slot] = {}
 			GameData.approval_rating = clampf(GameData.approval_rating - 10.0, 0.0, 100.0)
 			GameData.legitimacy      = clampf(GameData.legitimacy - 5.0, 0.0, 100.0)
 			GameData.scandal_meter   = clampf(GameData.scandal_meter - 30.0, 0.0, 100.0)
-			ev.append("💥 SCANDAL: %s (%s) forced to resign! (-10 approval, -5 legitimacy)" % [name, slot])
+			ev.append("💥 SCANDAL: %s (%s) forced to resign! (-10 approval, -5 legitimacy)" % [minister_name, slot])
 		else:
 			GameData.approval_rating = clampf(GameData.approval_rating - 7.0, 0.0, 100.0)
 			GameData.scandal_meter   = clampf(GameData.scandal_meter - 20.0, 0.0, 100.0)
 			ev.append("💥 SCANDAL: Senior official implicated in misconduct. (-7 approval)")
 
 # ── Polling ────────────────────────────────────────────────────────────────────
-func _tick_polling(ev: Array) -> void:
+func _tick_polling(_ev: Array) -> void:
 	var target = 15.0 + (GameData.approval_rating - 50.0) * 0.4
 	var pp     = GameData.polling.get(GameData.player_party, 20.0)
 	GameData.polling[GameData.player_party] = clampf(pp + (target - pp) * 0.08, 5.0, 60.0)
@@ -269,7 +270,7 @@ func _tick_legitimacy(ev: Array) -> void:
 			ev.append("⚠ Legitimacy crisis deepening. Parliament questions executive authority.")
 
 # ── Capital Regen ──────────────────────────────────────────────────────────────
-func _regen_capital(ev: Array) -> void:
+func _regen_capital(_ev: Array) -> void:
 	var regen = 2 + int(float(GameData.filled_cabinet_slots()) / 3.0)
 	if GameData.legitimacy > 70.0: regen += 1
 	GameData.gain_capital(regen)
