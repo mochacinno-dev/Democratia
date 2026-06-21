@@ -18,6 +18,7 @@ config/icon="res://Art/Backgrounds/MenuBackground.png"
 [autoload]
 
 GameData="*uid://50e0sv12ao3k"
+Systems="*uid://c0ta565sfspm3"
 
 [physics]
 
